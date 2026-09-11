@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI Eval Platform</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>AI Eval Platform</h1>
+
+  <section id="create-task-section">
+    <h2>Create a New Task</h2>
+    <label>Description</label>
+    <textarea id="description" rows="2" placeholder="Returns the sum of two numbers"></textarea>
+  
+    <label>Function Name</label>
+    <input type="text" id="function_name" placeholder="add">
+  
+    <label>How should correctness be checked?</label>
+    <div>
+      <label><input type="radio" name="mode" value="raw" checked onchange="switchMode()"> I'll write test code myself</label>
+      <label><input type="radio" name="mode" value="examples" onchange="switchMode()"> Give input/output examples</label>
+      <label><input type="radio" name="mode" value="auto" onchange="switchMode()"> Let AI write the tests</label>
+    </div>
+  
+    <div id="mode-raw">
+      <label>Test Code</label>
+      <textarea id="test_code" rows="4" placeholder="assert add(2, 3) == 5"></textarea>
+    </div>
+  
+    <div id="mode-examples" style="display:none;">
+      <label>Examples (one per line, format: input1, input2 -> output)</label>
+      <textarea id="examples_text" rows="4" placeholder="2, 3 -> 5&#10;-1, 1 -> 0"></textarea>
+    </div>
+  
+    <div id="mode-auto" style="display:none;">
+      <p>The AI will generate test cases automatically based on your description.</p>
+    </div>
+  
+    <button onclick="createTask()">Create Task</button>
+  </section>
+
+  <section id="tasks-section">
+    <h2>Tasks</h2>
+    <button onclick="loadTasks()">Refresh</button>
+    <button id="toggle-btn" onclick="toggleTasksVisibility()">Hide Tasks</button>
+    <br><br>
+    <input type="text" id="search-text" placeholder="Search tasks (e.g. 'sum', 'linked list')">
+    <button onclick="searchTasksByText()">Search</button>
+    <button onclick="loadTasks()">Clear Search</button>
+    <div id="tasks-list"></div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
