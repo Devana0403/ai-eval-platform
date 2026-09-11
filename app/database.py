@@ -3,7 +3,7 @@
 
 # # This is the connection string: it tells SQLAlchemy how to reach
 # # the exact same Postgres container you already tested.
-# DATABASE_URL = "postgresql://eval_admin:eval_password_123@localhost:5544/eval_platform"
+# DATABASE_URL = "postgresql://eval_admin:#your_password#@localhost:5544/eval_platform"
 
 # engine = create_engine(DATABASE_URL)
 
@@ -34,7 +34,7 @@ load_dotenv()
 DB_BACKEND = os.getenv("DB_BACKEND", "azure").lower()
 
 if DB_BACKEND == "local":
-    DATABASE_URL = "postgresql://eval_admin:eval_password_123@localhost:5544/eval_platform"
+    DATABASE_URL = "postgresql://eval_admin:#your_password#@localhost:5544/eval_platform"
 else:
     DATABASE_URL = os.getenv("AZURE_DATABASE_URL")
     if not DATABASE_URL:
