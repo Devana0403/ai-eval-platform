@@ -3,9 +3,9 @@ services:
     image: postgres:16
     restart: always
     environment:
-      POSTGRES_USER: eval_admin
-      POSTGRES_PASSWORD: eval_password_123
-      POSTGRES_DB: eval_platform
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
     ports:
       - "5544:5432"
     volumes:
