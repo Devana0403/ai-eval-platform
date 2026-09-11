@@ -2,8 +2,7 @@
 
 An evaluation platform that takes a coding task, generates a candidate solution with an LLM (Google Gemini), runs that solution inside an isolated sandbox, grades it against tests, classifies *why* it failed if it failed, and can benchmark the same process across many tasks at once.
 
-Built to demonstrate the kind of engineering an "AI evaluation" or "RL environments" role actually needs — sandboxed execution, graders, failure taxonomies, and benchmark design — rather than another basic LLM chat wrapper.
-
+Built to explore automated evaluation, sandboxed execution, failure analysis, and reproducible benchmarking of LLM-generated software.
 **Live demo:** https://victorious-glacier-079dc1610.3.azurestaticapps.net
 **API:** https://ai-eval-platform-api.azurewebsites.net
 
