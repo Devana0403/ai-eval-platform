@@ -5,8 +5,8 @@ try:
         host="localhost",
         port=5544,
         dbname="eval_platform",
-        user="eval_admin",
-        password="eval_password_123"
+        user="admin",
+        password="password"
     )
     print("Connected successfully!")
     conn.close()
